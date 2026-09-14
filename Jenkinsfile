@@ -16,7 +16,7 @@ pipeline{
         stage('Execução dos testes'){
             steps{
                 echo 'Executando os testes com Cypress...'
-                bat 'set CYPRESS_CACHE_FOLDER=%WORKSPACE%\\.cypress_cache && npx cypress install && npm test'
+                bat 'npx cypress install --force && npx cypress run --browser chrome'
             }
         }
     }
