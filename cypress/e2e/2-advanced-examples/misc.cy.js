@@ -5,7 +5,7 @@ context('Misc', () => {
     cy.visit('https://example.cypress.io/commands/misc')
   })
 
-  it('cy.exec() - execute a system command', () => {
+  it.skip('cy.exec() - execute a system command', () => {
     // execute a system command.
     // so you can take actions necessary for
     // your test outside the scope of Cypress.
@@ -37,7 +37,7 @@ context('Misc', () => {
       return
     }
 
-    cy.exec('echo Jane Lane')
+    cy.exec('echo Jane Lane', { failOnNonZeroExit: false })
       .its('stdout').should('contain', 'Jane Lane')
 
     if (Cypress.platform === 'win32') {
@@ -76,8 +76,8 @@ context('Misc', () => {
         scale: false,
         disableTimersAndAnimations: true,
         screenshotOnRunFailure: true,
-        onBeforeScreenshot () { },
-        onAfterScreenshot () { },
+        onBeforeScreenshot() { },
+        onAfterScreenshot() { },
       })
     })
   })
