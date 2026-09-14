@@ -1,10 +1,6 @@
 pipeline{
     agent any
 
-    environment {
-        CYPRESS_CACHE_FOLDER = "${env.WORKSPACE}/.cypress_cache"
-    }
-
     tools {
         nodejs 'nodejs'
     }
@@ -20,7 +16,7 @@ pipeline{
         stage('Execução dos testes'){
             steps{
                 echo 'Executando os testes com Cypress...'
-                bat 'npx cypress install && npm test'
+                bat 'set CYPRESS_CACHE_FOLDER=%WORKSPACE%\\.cypress_cache && npx cypress install && npm test'
             }
         }
     }
