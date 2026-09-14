@@ -20,8 +20,7 @@ pipeline{
         stage('Execução dos testes'){
             steps{
                 echo 'Executando os testes com Cypress...'
-                bat 'npx cypress install'
-                bat 'npm test'
+                bat 'npx cypress install && npm test'
             }
         }
     }
