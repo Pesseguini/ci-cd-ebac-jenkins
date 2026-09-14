@@ -1,6 +1,10 @@
 pipeline{
     agent any
 
+    environment {
+        CYPRESS_CACHE_FOLDER = "${env.WORKSPACE}/.cypress_cache"
+    }
+
     tools {
         nodejs 'nodejs'
     }
@@ -19,14 +23,6 @@ pipeline{
                 bat 'npx cypress install'
                 bat 'npm test'
             }
-        }
-    }
-    post{
-        success{
-            echo 'Build e testes concluídos com sucesso!'
-        }
-        failure {
-            echo 'Build ou testes falharam!'
         }
     }
 }
