@@ -14,9 +14,10 @@ pipeline{
         }
 
         stage('Execução dos testes'){
-            steps{
-                echo 'Executando os testes com Cypress...'
-                bat 'npx cypress install --force && npx cypress run --browser chrome'
+    steps{
+        echo 'Executando os testes com Cypress...'
+        withEnv(['CYPRESS_CACHE_FOLDER=C\\Users\\Lucas Pesseguini\\AppData\\Local\\Cypress\\Cache']) {
+            bat 'npx cypress install --force && npx cypress run --browser chrome'
             }
         }
     }
