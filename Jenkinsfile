@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Instalação de dependências') {
             steps {
-                echo 'Instalando pacotes e binário do Cypress localmente...'
-                bat 'npm install && npx cypress verify'
+                echo 'Instalando dependências e forçando o download do binário do Cypress...'
+                bat 'npm install && npx cypress install'
             }
         }
 
