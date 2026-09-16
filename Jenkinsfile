@@ -6,12 +6,10 @@ pipeline {
     }
 
     stages {
-        stage('Instalação e Testes') {
+        stage('Executar Testes') {
             steps {
-                echo 'Configurando cache local e executando...'
-                withEnv(["CYPRESS_CACHE_FOLDER=${env.WORKSPACE}/node_modules/.cache/cypress"]) {
-                    bat 'npm install && npx cypress install && npx cypress run --browser chrome'
-                }
+                echo 'Rodando Cypress...'
+                bat 'npx cypress run --browser chrome'
             }
         }
     }
