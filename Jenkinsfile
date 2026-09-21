@@ -14,3 +14,11 @@ pipeline {
         }
     }
 }
+post {
+    success {
+        echo 'Testes concluídos com sucesso!'
+    }
+    failure {
+        echo 'Testes falharam!'
+    }
+}
