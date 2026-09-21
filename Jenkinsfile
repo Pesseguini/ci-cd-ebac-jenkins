@@ -7,9 +7,18 @@ pipeline {
 
     stages {
         stage('Executar Testes') {
-            steps {
-                echo 'Rodando Cypress...'
-                bat 'npx cypress run --browser chrome'
+            parallel{
+                stage ('Testes no Chrome'){
+                    steps{
+                        bat 'npm run --browser chrome'
+                    }
+                }
+
+                stage ('Testes no Electron'){
+                    steps{
+                        bat 'npm run --browser electron'
+
+
             }
         }
     }
