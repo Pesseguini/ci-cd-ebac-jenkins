@@ -10,13 +10,12 @@ pipeline {
             parallel {
                 stage('Testes no Chrome') {
                     steps {
-                        bat 'npx cypress run --browser chrome'
+                        bat 'npm run test-chrome'
                     }
                 }
-
                 stage('Testes no Electron') {
                     steps {
-                        bat 'npx cypress run --browser electron'
+                        bat 'npm run test-electron'
                     }
                 }
             }
