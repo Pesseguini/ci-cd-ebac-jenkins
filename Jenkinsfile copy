@@ -8,19 +8,9 @@ pipeline {
     stages {
         stage('Executar Testes') {
             parallel {
-                stage('Testes da suite-1') {
+                stage('Testes no Chrome') {
                     steps {
-                        bat 'npm run teste-suite-1'
-                    }
-                }
-                stage('Testes da suite-2') {
-                    steps {
-                        bat 'npm run teste-suite-2'
-                    }
-                }
-                stage('Testes da suite-3') {
-                    steps {
-                        bat 'npm run teste-suite-3'
+                        bat 'npm run test-chrome'
                     }
                 }
                 stage('Testes no Electron') {
