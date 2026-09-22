@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        stage('Instalar Dependências') {
+            steps {
+                bat 'npm install'
+                bat 'npx cypress install'
+            }
+        }
+
         stage('Executar Testes') {
             parallel {
                 stage('Testes da suite-1') {
